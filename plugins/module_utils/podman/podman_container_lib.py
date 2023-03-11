@@ -1283,6 +1283,10 @@ class PodmanContainerDiff:
         return self._diff_update_and_compare('workdir', before, after)
 
     def is_different(self):
+        
+        if 'disable_recreate' in self.module_params:
+            return False
+
         diff_func_list = [func for func in dir(self)
                           if callable(getattr(self, func)) and func.startswith(
                               "diffparam")]
