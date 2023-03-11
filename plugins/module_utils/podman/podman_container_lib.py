@@ -14,6 +14,7 @@ __metaclass__ = type
 
 ARGUMENTS_SPEC_CONTAINER = dict(
     name=dict(required=True, type='str'),
+    disable_recreate=dict(required=False, type='bool', default=False),
     executable=dict(default='podman', type='str'),
     state=dict(type='str', default='started', choices=[
         'absent', 'present', 'stopped', 'started', 'created']),
